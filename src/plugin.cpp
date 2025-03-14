@@ -1,8 +1,10 @@
 #include "Logger.h"
 #include "UI.h"
 #include "Hooks.h"
+#include "DrawDebugExtension.h"
 
 void OnMessage(SKSE::MessagingInterface::Message* message) {
+    DrawDebug::OnMessage(message);
     if (message->type == SKSE::MessagingInterface::kDataLoaded) {
     }
     if (message->type == SKSE::MessagingInterface::kPostLoad) {

@@ -3,5 +3,7 @@ set(headers ${headers}
 	include/PCH.h
 	include/UI.h
 	include/Hooks.h
-	vendor/SKSEMenuFramework.h
+	vendor/include/SKSEMenuFramework.h
+	vendor/include/DrawDebug.h
+	vendor/include/DrawDebugExtension.h
 )

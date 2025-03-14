@@ -85,12 +85,22 @@ add_commonlibsse_plugin(
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_23) 
 target_precompile_headers(${PROJECT_NAME} PRIVATE include/PCH.h)
 target_compile_definitions(${PROJECT_NAME}  PRIVATE PROJECT_NAME="${PROJECT_NAME}")
+
+
+set(header_dirs "")
+
+foreach(header ${headers})
+    get_filename_component(dir ${header} DIRECTORY)
+    list(APPEND header_dirs ${dir})
+endforeach()
+
+list(REMOVE_DUPLICATES header_dirs)
+
 target_include_directories(
 	${PROJECT_NAME}
 	PRIVATE
 	${CLIB_UTIL_INCLUDE_DIRS}
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/vendor
+    ${header_dirs}
 )
 
 # ---------------------------------------------------- #
