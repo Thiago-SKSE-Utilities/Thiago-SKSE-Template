@@ -60,8 +60,6 @@ set(BUILD_TESTS OFF CACHE BOOL " " FORCE)
 add_subdirectory("$ENV{COMMONLIB_SSE_FOLDER}" ${CMAKE_CURRENT_BINARY_DIR}/_deps/clib-build)
 get_target_property(COMMONLIB_SRC_DIR CommonLibSSE SOURCE_DIR)
 
-find_path(CLIB_UTIL_INCLUDE_DIRS "ClibUtil/utils.hpp")
-
 file(
   GLOB_RECURSE
   sources
@@ -99,7 +97,6 @@ list(REMOVE_DUPLICATES header_dirs)
 target_include_directories(
 	${PROJECT_NAME}
 	PRIVATE
-	${CLIB_UTIL_INCLUDE_DIRS}
     ${header_dirs}
 )
 
