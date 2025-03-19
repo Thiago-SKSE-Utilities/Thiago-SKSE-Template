@@ -7,7 +7,7 @@ void UI::Register() {
     if (!SKSEMenuFramework::IsInstalled()) {
         return;
     }
-    SKSEMenuFramework::SetSection(PROJECT_NAME);
+    SKSEMenuFramework::SetSection(BEAUTIFUL_NAME);
     SKSEMenuFramework::AddSectionItem("Main", Example1::Render);
 }
 
