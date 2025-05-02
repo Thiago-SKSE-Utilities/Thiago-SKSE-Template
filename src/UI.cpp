@@ -7,6 +7,7 @@ void UI::Register() {
     if (!QTRLib::SKSEMenuFramework::IsInstalled()) {
         return;
     }
+
     QTRLib::SKSEMenuFramework::SetSection(BEAUTIFUL_NAME);
     QTRLib::SKSEMenuFramework::AddSectionItem("Main", Example1::Render);
 }
