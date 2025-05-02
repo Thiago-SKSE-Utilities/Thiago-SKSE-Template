@@ -102,10 +102,6 @@ list(REMOVE_DUPLICATES header_dirs)
 #                      Libraries                       #
 # ---------------------------------------------------- #
 
-#find_package(MyPackge CONFIG REQUIRED)
-#find_library(MY_Lib mylib PATHS ${CMAKE_CURRENT_SOURCE_DIR}/lib)
-
-
 target_include_directories(
 	${PROJECT_NAME}
 	PRIVATE
@@ -113,6 +109,14 @@ target_include_directories(
     #${MY_Lib}
     #MyPackge::item
 )
+
+#find_package(MyPackge CONFIG REQUIRED)
+#find_library(MY_Lib mylib PATHS ${CMAKE_CURRENT_SOURCE_DIR}/lib)
+
+#target_link_libraries(
+#	${PROJECT_NAME}
+#	PRIVATE
+#)
 
 # ---------------------------------------------------- #
 #                        Output                        #
