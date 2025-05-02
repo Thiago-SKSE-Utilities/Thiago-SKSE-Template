@@ -4,16 +4,16 @@
 
 void UI::Register() {
 
-    if (!SKSEMenuFramework::IsInstalled()) {
+    if (!QTRLib::SKSEMenuFramework::IsInstalled()) {
         return;
     }
-    SKSEMenuFramework::SetSection(BEAUTIFUL_NAME);
-    SKSEMenuFramework::AddSectionItem("Main", Example1::Render);
+    QTRLib::SKSEMenuFramework::SetSection(BEAUTIFUL_NAME);
+    QTRLib::SKSEMenuFramework::AddSectionItem("Main", Example1::Render);
 }
 
 
 void __stdcall UI::Example1::Render() {
-    if (ImGui::Button("Button")) {
+    if (QTRLib::ImGui::Button("Button")) {
         logger::trace("Button pressed");
     }
 }

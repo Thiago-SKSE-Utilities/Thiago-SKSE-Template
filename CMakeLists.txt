@@ -6,19 +6,22 @@ if(NOT DEFINED ENV{COMMONLIB_SSE_FOLDER})
   message(FATAL_ERROR "Missing COMMONLIB_SSE_FOLDER environment variable")
 endif()
 
-# ---------------------------------------------------- #
-#               Imports and definitions                #
-# ---------------------------------------------------- #
-
-include(cmake/headerlist.cmake)
-include(cmake/sourcelist.cmake)
 include(cmake/lib/copyOutputs.cmake)
 include(cmake/lib/automaticGameFolderOutput.cmake)
+include(cmake/lib/autoCollectSources.cmake)
+
+# ---------------------------------------------------- #
+#                       Config                         #
+# ---------------------------------------------------- #
+
+set(AUTHOR_NAME "SkyrimThiago")
+set(PRODUCT_NAME "ThiagoTemplate")
+set(BEAUTIFUL_NAME "Thiago Template")
+
+add_project_folder(./)
+add_project_folder(./vendor/qtrlib/)
 
 cmake_minimum_required(VERSION 3.21)
-set(AUTHOR_NAME "SkyrimThiago")
-set(PRODUCT_NAME "Template")
-set(BEAUTIFUL_NAME "Template")
 
 project(${PRODUCT_NAME} VERSION 0.1.12.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 23)
@@ -94,10 +97,21 @@ endforeach()
 
 list(REMOVE_DUPLICATES header_dirs)
 
+
+# ---------------------------------------------------- #
+#                      Libraries                       #
+# ---------------------------------------------------- #
+
+#find_package(MyPackge CONFIG REQUIRED)
+#find_library(MY_Lib mylib PATHS ${CMAKE_CURRENT_SOURCE_DIR}/lib)
+
+
 target_include_directories(
 	${PROJECT_NAME}
 	PRIVATE
     ${header_dirs}
+    #${MY_Lib}
+    #MyPackge::item
 )
 
 # ---------------------------------------------------- #
@@ -107,4 +121,5 @@ target_include_directories(
 set(wildlander_output false)
 set(steam_owrt_output false)
 set(steam_mods_output true)
+
 automaticGameFolderOutput(wildlander_output, steam_owrt_output, steam_mods_output)

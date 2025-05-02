@@ -5,7 +5,8 @@ RE::NiPoint3 Rotate(const RE::NiPoint3& A, const RE::NiPoint3& angles) {
     R.SetEulerAnglesXYZ(angles);
     return R * A;
 }
-void DrawDebug::DrawBoundingBox(RE::TESObjectREFR* refr, const glm::vec4& color) {
+
+void QTRLib::DrawDebug::DrawBoundingBox(RE::TESObjectREFR* refr, const glm::vec4& color) {
     if (!refr) {
         return;
     }
@@ -29,7 +30,7 @@ void DrawDebug::DrawBoundingBox(RE::TESObjectREFR* refr, const glm::vec4& color)
 }
 
 
-void DrawDebug::DrawBox(RE::NiPoint3& from, RE::NiPoint3& to, RE::NiPoint3& center, RE::NiPoint3 euler,
+void QTRLib::DrawDebug::DrawBox(RE::NiPoint3& from, RE::NiPoint3& to, RE::NiPoint3& center, RE::NiPoint3 euler,
                         const glm::vec4& color) {
 
     const auto v1 = Rotate(RE::NiPoint3(from.x, from.y, from.z) - center, euler) + center;
@@ -61,7 +62,7 @@ void DrawDebug::DrawBox(RE::NiPoint3& from, RE::NiPoint3& to, RE::NiPoint3& cent
     DrawLine(v4, v8, color);
 }
 
-void DrawDebug::DrawCube(RE::NiPoint3& center, float radius, RE::NiPoint3 euler, const glm::vec4& color) {
+void QTRLib::DrawDebug::DrawCube(RE::NiPoint3& center, float radius, RE::NiPoint3 euler, const glm::vec4& color) {
 
     auto length = RE::NiPoint3(radius, radius, radius);
     auto from = center - length;
@@ -69,6 +70,6 @@ void DrawDebug::DrawCube(RE::NiPoint3& center, float radius, RE::NiPoint3 euler,
     DrawBox(from, to, from, euler, color);
 }
 
-void DrawDebug::DrawCube(RE::NiPoint3& center, float radius, const glm::vec4& color) {
+void QTRLib::DrawDebug::DrawCube(RE::NiPoint3& center, float radius, const glm::vec4& color) {
     DrawCube(center, radius, {0, 0, 0}, color);
 }
