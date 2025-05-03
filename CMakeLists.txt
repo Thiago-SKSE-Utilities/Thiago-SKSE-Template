@@ -103,11 +103,9 @@ list(REMOVE_DUPLICATES header_dirs)
 # ---------------------------------------------------- #
 
 target_include_directories(
-	${PROJECT_NAME}
+    ${PROJECT_NAME}
 	PRIVATE
     ${header_dirs}
-    #${MY_Lib}
-    #MyPackge::item
 )
 
 #find_package(MyPackge CONFIG REQUIRED)
@@ -116,6 +114,8 @@ target_include_directories(
 #target_link_libraries(
 #	${PROJECT_NAME}
 #	PRIVATE
+#       MyPackge::something
+#       ${MY_Lib}
 #)
 
 # ---------------------------------------------------- #
