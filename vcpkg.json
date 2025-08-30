@@ -4,6 +4,7 @@
   "version-string": "0.1",
   "dependencies": [
     "rapidcsv",
+    "directxtk",
     "spdlog",
     "glm"
   ],
